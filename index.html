@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Mastery | The Training That Actually Shows You How</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23C8B6FF'/><text x='16' y='23' text-anchor='middle' fill='%23000' font-family='sans-serif' font-weight='700' font-size='20'>C</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   NEO-BRUTALISM DESIGN SYSTEM
+   ═══════════════════════════════════════ */
+
+:root {
+  --black: #1A1A2E;
+  --white: #FFFFFF;
+  --bg: #FDFBF7;
+  --bg-alt: #F3EDE4;
+  --yellow: #C8B6FF;
+  --pink: #FF8C7C;
+  --blue: #7ECFCF;
+  --green: #88D4AB;
+  --purple: #C8B6FF;
+  --orange: #FFAD85;
+  --red: #FF7B7B;
+  --lime: #B8E986;
+  --border: 3px solid var(--black);
+  --border-thin: 2px solid var(--black);
+  --shadow: 5px 5px 0px var(--black);
+  --shadow-sm: 3px 3px 0px var(--black);
+  --shadow-lg: 8px 8px 0px var(--black);
+  --shadow-hover: 2px 2px 0px var(--black);
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--black);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── Shared ── */
+.nb-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; font-family: var(--font-display);
+  font-weight: 700; font-size: 16px; border: var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  cursor: pointer; transition: all 0.1s ease;
+  text-decoration: none; color: var(--black); user-select: none;
+}
+.nb-btn:hover { box-shadow: var(--shadow-hover); transform: translate(3px, 3px); }
+.nb-btn:active { box-shadow: none; transform: translate(5px, 5px); }
+.nb-btn-primary { background: var(--yellow); }
+.nb-btn-pink { background: var(--pink); color: var(--white); }
+.nb-btn-blue { background: var(--blue); }
+.nb-btn-green { background: var(--green); }
+.nb-btn-white { background: var(--white); }
+
+.nb-badge {
+  display: inline-block; padding: 4px 12px; font-family: var(--font-mono);
+  font-size: 12px; font-weight: 700; border: var(--border-thin);
+  border-radius: 4px; box-shadow: 2px 2px 0px var(--black);
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Sticky Nav ── */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white); border-bottom: var(--border); padding: 12px 0;
+}
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; }
+.topbar-logo {
+  font-family: var(--font-mono); font-weight: 700; font-size: 18px;
+  display: flex; align-items: center; gap: 8px;
+}
+.topbar-logo .logo-box {
+  width: 32px; height: 32px; background: var(--yellow);
+  border: var(--border-thin); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; box-shadow: 2px 2px 0 var(--black);
+}
+.topbar-nav { display: flex; gap: 8px; align-items: center; }
+.topbar-nav a {
+  font-family: var(--font-display); font-weight: 600; font-size: 14px;
+  text-decoration: none; color: var(--black); padding: 8px 16px;
+  border-radius: 6px; border: 2px solid transparent; transition: all 0.1s;
+}
+.topbar-nav a:hover { border-color: var(--black); background: var(--bg); }
+.topbar-nav .nav-cta {
+  background: var(--yellow); border: var(--border-thin) !important;
+  box-shadow: var(--shadow-sm); padding: 8px 20px;
+}
+.topbar-nav .nav-cta:hover {
+  box-shadow: 1px 1px 0 var(--black); transform: translate(2px, 2px);
+}
+
+/* ── Marquee ── */
+.marquee-bar {
+  background: var(--yellow); color: var(--black); padding: 10px 0;
+  overflow: hidden; white-space: nowrap; font-family: var(--font-mono);
+  font-size: 14px; font-weight: 700; letter-spacing: 1px;
+  border-bottom: var(--border);
+}
+.marquee-track { display: inline-block; animation: marquee 25s linear infinite; }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-sep { color: var(--black); opacity: 0.4; margin: 0 24px; }
+
+/* ── Hero ── */
+.hero { padding: 64px 0 48px; position: relative; background: linear-gradient(180deg, var(--bg) 0%, #E6F5F5 40%, #D4EDED 100%); }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+.hero-eyebrow {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow .dot {
+  width: 10px; height: 10px; background: var(--green);
+  border-radius: 50%; border: 2px solid var(--black);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 {
+  font-family: var(--font-display); font-size: 56px; font-weight: 700;
+  line-height: 1.1; margin-bottom: 20px;
+}
+.hero h1 .highlight {
+  background: var(--blue); padding: 2px 10px; border: var(--border-thin);
+  border-radius: 4px; box-shadow: var(--shadow-sm);
+  display: inline-block; transform: rotate(-1deg); position: relative;
+}
+.hero-sub { font-size: 18px; line-height: 1.7; margin-bottom: 32px; max-width: 520px; }
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 16px; margin-top: 32px; }
+.hero-stat {
+  background: var(--white); border: var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: 12px 18px; text-align: center; min-width: 90px;
+}
+.hero-stat .stat-num { font-family: var(--font-mono); font-size: 28px; font-weight: 700; line-height: 1; color: var(--black); }
+.hero-stat:nth-child(1) { border-bottom: 4px solid var(--blue); }
+.hero-stat:nth-child(2) { border-bottom: 4px solid var(--pink); }
+.hero-stat:nth-child(3) { border-bottom: 4px solid var(--yellow); }
+.hero-stat:nth-child(4) { border-bottom: 4px solid var(--green); }
+.hero-stat .stat-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+.hero-visual { position: relative; height: 400px; }
+.hero-card-stack .hc {
+  position: absolute; width: 280px; padding: 20px;
+  background: var(--white); border: var(--border); border-radius: var(--radius);
+}
+.hc-1 { top: 0; right: 20px; box-shadow: 6px 6px 0 var(--blue); transform: rotate(2deg); z-index: 3; }
+.hc-2 { top: 80px; right: 80px; box-shadow: 6px 6px 0 var(--pink); transform: rotate(-3deg); z-index: 2; }
+.hc-3 { top: 160px; right: 10px; box-shadow: 6px 6px 0 var(--yellow); transform: rotate(1deg); z-index: 1; }
+.hc-icon {
+  width: 36px; height: 36px; border: var(--border-thin); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 10px;
+}
+.hc-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+.hc-desc { font-size: 13px; color: #555; line-height: 1.4; }
+.hc-1 .hc-icon { background: var(--yellow); }
+.hc-2 .hc-icon { background: var(--pink); }
+.hc-3 .hc-icon { background: var(--blue); }
+
+/* ── Logo Carousel ── */
+.logo-bar {
+  padding: 20px 0; border-top: var(--border); border-bottom: var(--border);
+  background: var(--bg); overflow: hidden; position: relative;
+}
+.logo-bar::before, .logo-bar::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2;
+}
+.logo-bar::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+.logo-bar::after { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
+.logo-track {
+  display: flex; align-items: center; gap: 20px;
+  animation: logo-scroll 35s linear infinite; width: max-content;
+}
+@keyframes logo-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.logo-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 13px;
+  white-space: nowrap; color: var(--black); flex-shrink: 0;
+  padding: 8px 16px 8px 10px; background: var(--white);
+  border: 2px solid var(--black); border-radius: 8px;
+  box-shadow: 3px 3px 0 var(--black);
+}
+.logo-item:nth-child(11n+1) { background: #FFF3D4; }
+.logo-item:nth-child(11n+2) { background: #FFE0E9; }
+.logo-item:nth-child(11n+3) { background: #E0F4FF; }
+.logo-item:nth-child(11n+4) { background: #E0FFE9; }
+.logo-item:nth-child(11n+5) { background: #EDE0FF; }
+.logo-item:nth-child(11n+6) { background: #FFEBE0; }
+.logo-item:nth-child(11n+7) { background: #F0E0FF; }
+.logo-item:nth-child(11n+8) { background: #E0F0FF; }
+.logo-item:nth-child(11n+9) { background: #E0FFE0; }
+.logo-item:nth-child(11n+10) { background: #FFF0E0; }
+.logo-item:nth-child(11n) { background: #E8E8E8; }
+.logo-item svg { flex-shrink: 0; }
+
+/* ── Shared Section ── */
+.section-label {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-label .label-box {
+  display: inline-flex; padding: 4px 10px; border: var(--border-thin);
+  border-radius: 4px; box-shadow: 2px 2px 0 var(--black);
+}
+.section-title {
+  font-family: var(--font-display); font-size: 40px; font-weight: 700;
+  line-height: 1.15; margin-bottom: 16px;
+}
+.section-subtitle {
+  font-size: 17px; line-height: 1.6; max-width: 600px;
+  margin-bottom: 40px; color: #444;
+}
+
+/* ── Problem Section - Compact with cute icons ── */
+.problem-section { padding: 60px 0; position: relative; }
+.problem-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.problem-card {
+  background: var(--white); border: var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: 24px; cursor: pointer;
+  transition: all 0.15s; text-align: center;
+}
+.problem-card:hover {
+  transform: translate(-2px, -2px); box-shadow: var(--shadow);
+}
+.pc-icon {
+  width: 56px; height: 56px; margin: 0 auto 14px;
+}
+.pc-text {
+  font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 1.45;
+  margin-bottom: 6px;
+}
+.pc-subtext {
+  font-size: 13px; color: #666; line-height: 1.4;
+}
+
+/* ── Curriculum Accordion ── */
+.learn-section {
+  padding: 80px 0; background: var(--white);
+  border-top: var(--border); border-bottom: var(--border);
+  position: relative;
+}
+.modules-grid { display: flex; flex-direction: column; gap: 12px; }
+.module-item {
+  border: var(--border); border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.2s;
+  background: var(--white);
+}
+.module-item:hover { box-shadow: var(--shadow); transform: translate(-1px, -1px); }
+.module-item.open { box-shadow: var(--shadow-lg); transform: translate(-2px, -2px); }
+.module-header {
+  display: flex; align-items: center; gap: 16px;
+  padding: 22px 24px; cursor: pointer; user-select: none; transition: background 0.15s;
+}
+.module-header:hover { background: #FAFAF8; }
+.module-num {
+  width: 48px; height: 48px; border: var(--border); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-weight: 700; font-size: 18px; flex-shrink: 0;
+}
+.m-yellow .module-num { background: var(--yellow); }
+.m-pink .module-num { background: var(--pink); }
+.m-blue .module-num { background: var(--blue); }
+.m-green .module-num { background: var(--green); }
+.m-purple .module-num { background: var(--purple); }
+.module-info { flex: 1; }
+.module-name { font-family: var(--font-display); font-weight: 700; font-size: 17px; }
+.module-time { font-family: var(--font-mono); font-size: 12px; color: #666; margin-top: 2px; }
+.module-toggle {
+  width: 36px; height: 36px; border: var(--border); border-radius: 6px;
+  background: var(--bg); display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 700; transition: all 0.25s cubic-bezier(.4,0,.2,1); flex-shrink: 0;
+}
+.module-item.open .module-toggle {
+  background: var(--pink); color: var(--black);
+  transform: rotate(45deg); border-radius: 50%;
+}
+.module-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(.4,0,.2,1);
+}
+.module-item.open .module-body { max-height: 500px; }
+.module-body-inner {
+  padding: 0 24px 28px; display: grid;
+  grid-template-columns: 1fr 1fr; gap: 24px;
+  border-top: 2px dashed #ddd; margin: 0 24px; padding-top: 24px;
+}
+.module-item.open .module-header { padding-bottom: 16px; }
+.mb-col h4 {
+  font-family: var(--font-mono); font-size: 11px; text-transform: uppercase;
+  letter-spacing: 1px; margin-bottom: 12px; color: #888;
+  display: flex; align-items: center; gap: 6px;
+}
+.mb-col h4 svg { flex-shrink: 0; }
+.mb-col ul { list-style: none; padding: 0; }
+.mb-col li {
+  font-size: 14px; padding: 7px 0; padding-left: 22px;
+  position: relative; line-height: 1.5; border-bottom: 1px solid #f0f0f0;
+}
+.mb-col li:last-child { border-bottom: none; }
+.mb-col li::before {
+  content: '>'; position: absolute; left: 0;
+  font-family: var(--font-mono); font-weight: 700; color: var(--pink);
+}
+
+/* ── Trainer Section - Phone App Style ── */
+.trainer-section { padding: 80px 0; position: relative; }
+.trainer-layout {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center;
+}
+.trainer-phone {
+  width: 300px; height: 560px; background: var(--white); border: var(--border);
+  border-radius: 36px; margin: 0 auto; position: relative; padding: 20px 16px;
+  box-shadow: var(--shadow-lg); overflow: hidden;
+  animation: phone-float 6s ease-in-out infinite;
+}
+@keyframes phone-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(-2deg); }
+}
+.trainer-phone-notch {
+  width: 100px; height: 28px; background: var(--black); border-radius: 0 0 16px 16px;
+  margin: -20px auto 12px; position: relative; z-index: 2;
+}
+.trainer-phone-screen {
+  background: var(--bg); border-radius: 20px; border: var(--border-thin);
+  padding: 20px 16px; height: calc(100% - 30px); overflow: hidden;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.tp-header {
+  text-align: center; padding-bottom: 12px; border-bottom: 2px dashed #ddd;
+}
+.tp-avatar {
+  width: 64px; height: 64px; border: var(--border); border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm); position: relative;
+}
+.tp-avatar::after {
+  content: ''; position: absolute; bottom: 0; right: 0;
+  width: 16px; height: 16px; background: var(--green); border: 2px solid var(--black);
+  border-radius: 50%;
+}
+.tp-name {
+  font-family: var(--font-display); font-weight: 700; font-size: 16px;
+}
+.tp-role {
+  font-family: var(--font-mono); font-size: 10px; color: #666;
+}
+.tp-bio-card {
+  background: var(--white); border: var(--border-thin); border-radius: 10px;
+  padding: 12px; font-size: 12px; line-height: 1.55; color: #333;
+  box-shadow: var(--shadow-sm);
+}
+.tp-badges {
+  display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+}
+.tp-badge {
+  padding: 3px 8px; font-family: var(--font-mono); font-size: 9px;
+  font-weight: 700; border: 2px solid var(--black); border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--black); text-transform: uppercase;
+}
+.tp-bottom-card {
+  background: var(--white); border: var(--border-thin); border-radius: 10px;
+  padding: 10px 12px; font-size: 11px; line-height: 1.5; color: #555;
+  box-shadow: var(--shadow-sm); font-weight: 600; text-align: center;
+}
+.trainer-text-side { }
+.trainer-text-side h2 {
+  font-family: var(--font-display); font-size: 36px; font-weight: 700;
+  line-height: 1.15; margin-bottom: 16px;
+}
+.trainer-text-side p {
+  font-size: 16px; line-height: 1.7; margin-bottom: 16px; color: #444;
+}
+.trainer-text-side .highlight-box {
+  background: var(--yellow); border: var(--border); border-radius: var(--radius);
+  padding: 16px 20px; font-family: var(--font-display); font-weight: 700;
+  font-size: 15px; box-shadow: var(--shadow-sm); line-height: 1.5;
+}
+
+/* ── Dispatch Section - Neo-brutalism style ── */
+.dispatch-section {
+  padding: 80px 0; background: var(--bg);
+  border-top: var(--border); border-bottom: var(--border); position: relative;
+  overflow: hidden;
+}
+.dispatch-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+}
+.dispatch-phone {
+  width: 260px; height: 460px; background: var(--white); border: var(--border);
+  border-radius: 36px; margin: 0 auto; position: relative; padding: 18px 14px;
+  box-shadow: var(--shadow-lg);
+  animation: dispatch-wobble 5s ease-in-out infinite;
+}
+@keyframes dispatch-wobble {
+  0%, 100% { transform: rotate(1deg) translateY(0); }
+  25% { transform: rotate(-1deg) translateY(-4px); }
+  50% { transform: rotate(1deg) translateY(-6px); }
+  75% { transform: rotate(-0.5deg) translateY(-3px); }
+}
+.dispatch-notch {
+  width: 100px; height: 28px; background: var(--black); border-radius: 0 0 16px 16px;
+  margin: -18px auto 10px;
+}
+.dispatch-screen {
+  background: var(--bg); border-radius: 18px; border: var(--border-thin);
+  padding: 14px; height: calc(100% - 28px);
+  display: flex; flex-direction: column; gap: 8px; overflow: hidden;
+}
+.dispatch-msg {
+  padding: 10px 12px; border-radius: 12px; font-size: 11px; line-height: 1.4;
+  font-family: var(--font-body); max-width: 88%; animation: dispatch-fade 0.5s ease forwards;
+  opacity: 0; border: 2px solid var(--black);
+}
+.dispatch-msg.user {
+  background: var(--blue); color: var(--black); align-self: flex-end;
+  border-bottom-right-radius: 4px; box-shadow: 2px 2px 0 var(--black);
+}
+.dispatch-msg.claude {
+  background: var(--white); color: var(--black); align-self: flex-start;
+  border-bottom-left-radius: 4px; box-shadow: 2px 2px 0 var(--black);
+}
+.dispatch-msg:nth-child(1) { animation-delay: 0.3s; }
+.dispatch-msg:nth-child(2) { animation-delay: 1.2s; }
+.dispatch-msg:nth-child(3) { animation-delay: 2.1s; }
+.dispatch-msg:nth-child(4) { animation-delay: 3s; }
+.dispatch-msg:nth-child(5) { animation-delay: 3.9s; }
+@keyframes dispatch-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.dispatch-features {
+  display: flex; flex-direction: column; gap: 14px;
+}
+.df-card {
+  background: var(--white); border: var(--border); border-radius: var(--radius);
+  padding: 20px; display: flex; gap: 16px; align-items: flex-start;
+  transition: all 0.15s; cursor: default; box-shadow: var(--shadow-sm);
+}
+.df-card:hover { box-shadow: var(--shadow); transform: translate(-2px, -2px); }
+.df-icon {
+  width: 44px; height: 44px; border: var(--border); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.df-card:nth-child(1) .df-icon { background: var(--blue); }
+.df-card:nth-child(2) .df-icon { background: var(--green); }
+.df-card:nth-child(3) .df-icon { background: var(--yellow); }
+.df-card:nth-child(4) .df-icon { background: var(--pink); }
+.df-title { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
+.df-desc { font-size: 13px; color: #555; line-height: 1.45; margin-top: 2px; }
+
+/* ── ROI - Colorful ── */
+.roi-section {
+  padding: 80px 0; background: linear-gradient(135deg, #E8F5EC, #EDE4FF, #FFF0EA);
+  border-top: var(--border); border-bottom: var(--border); position: relative;
+}
+.roi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.roi-card {
+  background: var(--white); border: var(--border); border-radius: var(--radius);
+  padding: 28px; text-align: center; position: relative; overflow: hidden;
+  transition: all 0.15s; cursor: pointer; box-shadow: var(--shadow-sm);
+}
+.roi-card:hover { box-shadow: var(--shadow); transform: translate(-2px, -2px); }
+.roi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; }
+.roi-card:nth-child(1)::before { background: var(--yellow); }
+.roi-card:nth-child(2)::before { background: var(--pink); }
+.roi-card:nth-child(3)::before { background: var(--green); }
+.roi-num { font-family: var(--font-mono); font-size: 36px; font-weight: 700; margin-bottom: 4px; }
+.roi-card:nth-child(1) .roi-num { color: var(--orange); }
+.roi-card:nth-child(2) .roi-num { color: var(--pink); }
+.roi-card:nth-child(3) .roi-num { color: var(--green); }
+.roi-label { font-size: 14px; color: #555; font-weight: 600; }
+.roi-example { font-family: var(--font-mono); font-size: 12px; color: #888; margin-top: 8px; border-top: 2px dashed #eee; padding-top: 8px; }
+
+/* ── Quote ── */
+.quote-section { padding: 60px 0; background: var(--pink); border-bottom: var(--border); }
+.quote-card { max-width: 700px; margin: 0 auto; text-align: center; }
+.quote-mark { font-family: var(--font-display); font-size: 64px; font-weight: 700; line-height: 1; margin-bottom: -10px; }
+.quote-text { font-family: var(--font-display); font-size: 24px; font-weight: 600; line-height: 1.5; margin-bottom: 20px; }
+.quote-author { font-family: var(--font-mono); font-size: 14px; font-weight: 700; }
+
+/* ── Audience ── */
+.audience-section { padding: 80px 0; position: relative; }
+.audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.audience-card {
+  background: var(--white); border: var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: 28px; text-align: center;
+  transition: all 0.15s; cursor: pointer;
+}
+.audience-card:hover { box-shadow: var(--shadow); transform: translate(-2px, -2px); }
+.ac-icon {
+  width: 56px; height: 56px; border: var(--border-thin); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;
+}
+.audience-card:nth-child(1) .ac-icon { background: var(--yellow); }
+.audience-card:nth-child(2) .ac-icon { background: var(--pink); }
+.audience-card:nth-child(3) .ac-icon { background: var(--blue); }
+.audience-card:nth-child(4) .ac-icon { background: var(--green); }
+.audience-card:nth-child(5) .ac-icon { background: var(--purple); }
+.audience-card:nth-child(6) .ac-icon { background: var(--lime); }
+.ac-title { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+.ac-desc { font-size: 13px; color: #555; line-height: 1.5; }
+
+/* ── Prerequisites ── */
+.prereq-section { padding: 64px 0; background: var(--white); border-top: var(--border); border-bottom: var(--border); }
+.prereq-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;
+  max-width: 900px; margin: 0 auto;
+}
+.prereq-card {
+  background: var(--bg); border: var(--border); border-radius: var(--radius);
+  padding: 20px; text-align: center; box-shadow: var(--shadow-sm);
+  transition: all 0.15s; position: relative;
+}
+.prereq-card:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow); }
+.prereq-icon {
+  width: 44px; height: 44px; margin: 0 auto 12px; border: var(--border-thin);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+}
+.prereq-card:nth-child(1) .prereq-icon { background: var(--yellow); }
+.prereq-card:nth-child(2) .prereq-icon { background: var(--blue); }
+.prereq-card:nth-child(3) .prereq-icon { background: var(--pink); }
+.prereq-card:nth-child(4) .prereq-icon { background: var(--green); }
+.prereq-card:nth-child(5) .prereq-icon { background: var(--orange); }
+.prereq-card:nth-child(6) .prereq-icon { background: var(--lime); }
+.prereq-card:nth-child(7) .prereq-icon { background: var(--purple); }
+.prereq-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.prereq-desc { font-size: 12px; color: #555; line-height: 1.4; }
+.prereq-tag {
+  position: absolute; top: -8px; right: -8px; background: var(--pink);
+  border: 2px solid var(--black); border-radius: 50%; width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  box-shadow: 2px 2px 0 var(--black);
+}
+
+/* ── Pricing - 2 cards ── */
+.pricing-section {
+  padding: 80px 0; background: var(--white);
+  border-top: var(--border); border-bottom: var(--border);
+}
+.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 750px; margin: 0 auto; }
+.price-card {
+  border: var(--border); border-radius: var(--radius-lg); padding: 36px;
+  text-align: center; position: relative; transition: all 0.15s; background: var(--white);
+}
+.price-card:hover { transform: translate(-2px, -2px); }
+.price-card.featured {
+  background: var(--yellow); color: var(--black);
+  box-shadow: 8px 8px 0 var(--pink); transform: scale(1.03); z-index: 2;
+}
+.price-card.featured:hover { transform: scale(1.03) translate(-2px, -2px); box-shadow: 10px 10px 0 var(--pink); }
+.price-card:not(.featured) { background: #E6F5F5; box-shadow: 5px 5px 0 var(--yellow); }
+.price-card:not(.featured):hover { box-shadow: 8px 8px 0 var(--yellow); transform: translate(-2px, -2px); }
+.pc-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  padding: 4px 16px; font-family: var(--font-mono); font-size: 11px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  border: var(--border-thin); border-radius: 4px; box-shadow: 2px 2px 0 var(--black); white-space: nowrap;
+}
+.pc-name { font-family: var(--font-display); font-weight: 700; font-size: 22px; margin-bottom: 8px; margin-top: 10px; }
+.pc-price { font-family: var(--font-mono); font-size: 48px; font-weight: 700; line-height: 1; }
+.pc-price small { font-size: 16px; font-weight: 400; }
+.pc-per { font-size: 13px; color: #888; margin-bottom: 24px; }
+.featured .pc-per { color: #555; }
+.pc-features { list-style: none; padding: 0; margin-bottom: 24px; text-align: left; }
+.pc-features li {
+  padding: 8px 0; font-size: 14px; border-bottom: 1px dashed #ddd;
+  padding-left: 24px; position: relative; line-height: 1.4;
+}
+.featured .pc-features li { border-color: rgba(26,26,46,0.2); }
+.pc-features li::before {
+  content: '+'; position: absolute; left: 0;
+  font-family: var(--font-mono); font-weight: 700; color: var(--green);
+}
+
+/* ── FAQ ── */
+.faq-section { padding: 80px 0; position: relative; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+.faq-item {
+  background: var(--white); border: var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); overflow: hidden; transition: all 0.15s;
+}
+.faq-item:hover { box-shadow: var(--shadow); transform: translate(-1px, -1px); }
+.faq-q {
+  padding: 18px 20px; font-family: var(--font-display); font-weight: 700;
+  font-size: 15px; cursor: pointer; display: flex; align-items: center;
+  justify-content: space-between; gap: 12px; user-select: none;
+}
+.faq-q:hover { background: var(--bg); }
+.faq-toggle {
+  width: 28px; height: 28px; border: var(--border); border-radius: 6px;
+  background: var(--bg); display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 700; flex-shrink: 0; transition: all 0.25s cubic-bezier(.4,0,.2,1);
+}
+.faq-item.open .faq-toggle {
+  background: var(--pink); color: var(--black);
+  transform: rotate(45deg); border-radius: 50%;
+}
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(.4,0,.2,1); }
+.faq-item.open .faq-a { max-height: 300px; }
+.faq-a-inner {
+  padding: 0 20px 18px; font-size: 14px; line-height: 1.6;
+  color: #444; border-top: 2px dashed #ddd; padding-top: 14px; margin: 0 20px;
+}
+
+/* ── Final CTA ── */
+.cta-section {
+  padding: 80px 0; background: var(--blue);
+  border-top: var(--border); border-bottom: var(--border); text-align: center;
+  position: relative;
+}
+.cta-section h2 { font-family: var(--font-display); font-size: 44px; font-weight: 700; margin-bottom: 16px; line-height: 1.15; }
+.cta-section p { font-size: 18px; max-width: 500px; margin: 0 auto 32px; line-height: 1.6; }
+.cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cta-note {
+  font-family: var(--font-mono); font-size: 13px; margin-top: 32px; color: var(--black);
+  display: inline-flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;
+  padding: 12px 24px; background: var(--white); border: 2px solid var(--black);
+  border-radius: 8px; box-shadow: 3px 3px 0 var(--black);
+}
+.cta-note span { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+
+/* ── Registration Form ── */
+.reg-form-wrapper {
+  max-width: 560px; margin: 0 auto; overflow: hidden;
+  max-height: 0; opacity: 0;
+  transition: max-height 0.5s cubic-bezier(.4,0,.2,1), opacity 0.3s ease, margin 0.3s ease;
+}
+.reg-form-wrapper.open {
+  max-height: 1000px; opacity: 1; margin-top: 32px;
+}
+.reg-form {
+  background: var(--white); border: var(--border); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg); padding: 32px 32px 40px; text-align: left;
+}
+.reg-form h3 {
+  font-family: var(--font-display); font-size: 22px; font-weight: 700;
+  margin-bottom: 4px; text-align: center;
+}
+.reg-form .reg-sub {
+  font-size: 13px; color: #555; text-align: center; margin-bottom: 24px;
+  font-family: var(--font-mono);
+}
+.reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.reg-field { margin-bottom: 12px; }
+.reg-field.full { grid-column: 1 / -1; }
+.reg-label {
+  display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; color: var(--black);
+}
+.reg-input, .reg-select {
+  width: 100%; padding: 12px 14px; font-family: var(--font-body); font-size: 14px;
+  border: var(--border); border-radius: var(--radius); background: var(--bg);
+  color: var(--black); outline: none; transition: all 0.15s;
+}
+.reg-input:focus, .reg-select:focus {
+  box-shadow: var(--shadow-sm); background: var(--white); transform: translate(-1px, -1px);
+}
+.reg-input::placeholder { color: #999; }
+.reg-select { appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231A1A2E' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+}
+.reg-submit {
+  width: 100%; padding: 16px; font-family: var(--font-display); font-size: 16px;
+  font-weight: 700; background: var(--blue); color: var(--black); border: var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow); cursor: pointer;
+  transition: all 0.1s; margin-top: 8px; margin-bottom: 8px;
+}
+.reg-submit:hover { box-shadow: var(--shadow-hover); transform: translate(3px, 3px); }
+.reg-submit:active { box-shadow: none; transform: translate(5px, 5px); }
+.reg-success {
+  display: none; text-align: center; padding: 24px;
+}
+.reg-success.show { display: block; }
+.reg-success h3 { margin-bottom: 8px; }
+.reg-success p { font-size: 14px; color: #555; }
+
+/* ── Referral Banner ── */
+.referral-banner {
+  max-width: 750px; margin: 36px auto 0; padding: 20px 28px;
+  background: var(--lime); border: var(--border); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); display: flex; align-items: center; gap: 18px;
+  transition: all 0.15s;
+}
+.referral-banner:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-lg); }
+.referral-icon {
+  width: 48px; height: 48px; flex-shrink: 0; background: var(--white);
+  border: var(--border-thin); border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; box-shadow: 2px 2px 0 var(--black);
+}
+.referral-text { flex: 1; }
+.referral-text strong { font-family: var(--font-display); font-size: 15px; display: block; margin-bottom: 2px; }
+.referral-text span { font-size: 13px; color: #333; }
+.referral-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px;
+  background: var(--black); color: var(--white); border: var(--border);
+  border-radius: var(--radius); font-family: var(--font-mono); font-size: 12px;
+  font-weight: 700; text-decoration: none; text-transform: uppercase;
+  letter-spacing: 0.5px; box-shadow: var(--shadow-sm); transition: all 0.15s; white-space: nowrap;
+}
+.referral-btn:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow); }
+
+/* ── Footer ── */
+.footer { padding: 32px 0; background: var(--bg-alt); border-top: var(--border); text-align: center; }
+.footer-inner { font-family: var(--font-mono); font-size: 13px; color: var(--black); }
+.footer-inner a { color: var(--pink); text-decoration: none; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 36px; }
+  .hero-grid, .trainer-layout, .dispatch-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .problem-grid, .audience-grid, .pricing-grid, .roi-grid, .faq-grid { grid-template-columns: 1fr; }
+  .module-body-inner { grid-template-columns: 1fr; }
+  .price-card.featured { transform: scale(1); }
+  .price-card.featured:hover { transform: translate(-2px, -2px); }
+  .topbar-nav { display: none; }
+  .trainer-phone { width: 260px; height: 480px; }
+  .referral-banner { flex-direction: column; text-align: center; gap: 12px; }
+  .referral-btn { width: 100%; justify-content: center; }
+  .reg-row { grid-template-columns: 1fr; }
+  .prereq-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ STICKY NAV ═══════ -->
+<nav class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-logo">
+      <div class="logo-box">C</div>
+      Claude Mastery
+    </div>
+    <div class="topbar-nav">
+      <a href="#learn">Curriculum</a>
+      <a href="#trainer">Trainer</a>
+      <a href="#roi">ROI</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#dispatch">Dispatch</a>
+      <a href="#register" class="nav-cta">Register Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ MARQUEE ═══════ -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>STOP WATCHING YOUTUBE TUTORIALS <span class="marquee-sep">//</span> LEARN FROM AN ENGINEER WHO TRADED CODE FOR COWORK <span class="marquee-sep">//</span> SCHEDULED TASKS RUNNING ON AUTOPILOT <span class="marquee-sep">//</span> EVERY CONNECTOR. EVERY PLUGIN. NO CODE NEEDED. <span class="marquee-sep">//</span> $500/SEAT <span class="marquee-sep">//</span> NOT ANOTHER AI OVERVIEW TALK <span class="marquee-sep">//</span> REAL WORKFLOWS. REAL ROI. REAL TALK. <span class="marquee-sep">//</span> STOP WATCHING YOUTUBE TUTORIALS <span class="marquee-sep">//</span> LEARN FROM AN ENGINEER WHO TRADED CODE FOR COWORK <span class="marquee-sep">//</span> SCHEDULED TASKS RUNNING ON AUTOPILOT <span class="marquee-sep">//</span> EVERY CONNECTOR. EVERY PLUGIN. NO CODE NEEDED. <span class="marquee-sep">//</span> $500/SEAT <span class="marquee-sep">//</span> NOT ANOTHER AI OVERVIEW TALK <span class="marquee-sep">//</span> REAL WORKFLOWS. REAL ROI. REAL TALK. <span class="marquee-sep">//</span></span>
+  </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          Next Cohort Opening Soon | Limited Seats
+        </div>
+        <h1>
+          Stop Using AI<br>
+          Like a <span class="highlight">Search Engine.</span><br>
+          Start Running It Like a Team.
+        </h1>
+        <p class="hero-sub">
+          A 4-hour, hands-on workshop where you'll build real automations,
+          connect your actual tools, and walk out with workflows that save
+          you 5-10 hours every single week. Taught by an engineer who does
+          this daily, not someone who read about it.
+        </p>
+        <div class="hero-ctas">
+          <a href="#pricing" class="nb-btn nb-btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Grab Your Seat
+          </a>
+          <a href="#learn" class="nb-btn nb-btn-white">See the Curriculum</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="stat-num">4h</div><div class="stat-label">Workshop</div></div>
+          <div class="hero-stat"><div class="stat-num">15+</div><div class="stat-label">Live Demos</div></div>
+          <div class="hero-stat"><div class="stat-num">10+</div><div class="stat-label">Take-Home Workflows</div></div>
+          <div class="hero-stat"><div class="stat-num">$0</div><div class="stat-label">Code Required</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="hc hc-1">
+            <div class="hc-icon" style="background:var(--yellow);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M12 8v8m-4-4h8"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div class="hc-title">"Draft the Q2 proposal"</div>
+            <div class="hc-desc">Claude pulls CRM data, writes it in your brand voice, formats as .docx</div>
+          </div>
+          <div class="hc hc-2">
+            <div class="hc-icon" style="background:var(--pink);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="hc-title">"Prep me for the 2pm call"</div>
+            <div class="hc-desc">Researches the account, pulls last emails, builds a talk track</div>
+          </div>
+          <div class="hc hc-3">
+            <div class="hc-icon" style="background:var(--blue);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div class="hc-title">"Morning briefing, go"</div>
+            <div class="hc-desc">Calendar, pipeline, Slack highlights, and news. 30 seconds flat.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ LOGO CAROUSEL ═══════ -->
+<div class="logo-bar">
+  <div class="logo-track" id="logoTrack">
+    <div class="logo-item"><svg width="28" height="28" viewBox="0 0 28 28"><rect width="28" height="28" rx="6" fill="#D97706"/><text x="14" y="19" text-anchor="middle" fill="white" font-family="Space Grotesk" font-weight="700" font-size="16">C</text></svg> Claude</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#FF7A59" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="#FF7A59"/></svg> HubSpot</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="9" width="5" height="10" rx="2" fill="#E01E5A"/><rect x="9" y="2" width="10" height="5" rx="2" fill="#36C5F0"/><rect x="17" y="9" width="5" height="10" rx="2" fill="#2EB67D"/><rect x="9" y="17" width="10" height="5" rx="2" fill="#ECB22E"/></svg> Slack</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#4285F4" stroke-width="2"/><path d="M7 12h10M12 7v10" stroke="#4285F4" stroke-width="2"/></svg> Google Workspace</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,3 21,21 3,21" stroke="#6C3BF5" stroke-width="2" fill="none"/></svg> Apollo</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#EA4335" stroke-width="2"/><path d="M2 4l10 8 10-8" stroke="#EA4335" stroke-width="2"/></svg> Gmail</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#8B5CF6" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round"/></svg> Granola</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 16l7-6 7 6" stroke="#7B68EE" stroke-width="2.5" stroke-linecap="round"/><path d="M5 11l7-6 7 6" stroke="#49CCF9" stroke-width="2.5" stroke-linecap="round"/></svg> ClickUp</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 2l8 0 4 7H4z" fill="#0066DA"/><path d="M4 9l4 7h12l-4-7z" fill="#00AC47"/><path d="M16 2l4 7-4 7-8 0z" fill="#FFBA00" opacity="0.8"/></svg> Drive</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#4285F4" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#4285F4" stroke-width="2"/></svg> Calendar</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,3 22,21 2,21" fill="#000"/></svg> Vercel</div>
+    <!-- Duplicate for seamless loop -->
+    <div class="logo-item"><svg width="28" height="28" viewBox="0 0 28 28"><rect width="28" height="28" rx="6" fill="#D97706"/><text x="14" y="19" text-anchor="middle" fill="white" font-family="Space Grotesk" font-weight="700" font-size="16">C</text></svg> Claude</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#FF7A59" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="#FF7A59"/></svg> HubSpot</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="9" width="5" height="10" rx="2" fill="#E01E5A"/><rect x="9" y="2" width="10" height="5" rx="2" fill="#36C5F0"/><rect x="17" y="9" width="5" height="10" rx="2" fill="#2EB67D"/><rect x="9" y="17" width="10" height="5" rx="2" fill="#ECB22E"/></svg> Slack</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#4285F4" stroke-width="2"/><path d="M7 12h10M12 7v10" stroke="#4285F4" stroke-width="2"/></svg> Google Workspace</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,3 21,21 3,21" stroke="#6C3BF5" stroke-width="2" fill="none"/></svg> Apollo</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#EA4335" stroke-width="2"/><path d="M2 4l10 8 10-8" stroke="#EA4335" stroke-width="2"/></svg> Gmail</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#8B5CF6" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round"/></svg> Granola</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 16l7-6 7 6" stroke="#7B68EE" stroke-width="2.5" stroke-linecap="round"/><path d="M5 11l7-6 7 6" stroke="#49CCF9" stroke-width="2.5" stroke-linecap="round"/></svg> ClickUp</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 2l8 0 4 7H4z" fill="#0066DA"/><path d="M4 9l4 7h12l-4-7z" fill="#00AC47"/><path d="M16 2l4 7-4 7-8 0z" fill="#FFBA00" opacity="0.8"/></svg> Drive</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#4285F4" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#4285F4" stroke-width="2"/></svg> Calendar</div>
+    <div class="logo-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,3 22,21 2,21" fill="#000"/></svg> Vercel</div>
+  </div>
+</div>
+
+<!-- ═══════ THE PROBLEM - Compact with cute illustrated icons ═══════ -->
+<section class="problem-section">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-box" style="background:var(--pink);">01</span>
+      The Problem
+    </div>
+    <h2 class="section-title">You're paying for a jet engine<br>and using it as a fan.</h2>
+    <p class="section-subtitle">Sound familiar? You're not alone.</p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <svg class="pc-icon" viewBox="0 0 56 56" fill="none">
+          <circle cx="28" cy="28" r="24" fill="#FFF0F0" stroke="var(--black)" stroke-width="2.5"/>
+          <circle cx="28" cy="24" r="11" fill="var(--yellow)" stroke="var(--black)" stroke-width="2"/>
+          <path d="M22 20 Q22 17, 28 17 Q34 17, 34 20" stroke="var(--black)" stroke-width="2" fill="none"/>
+          <circle cx="24" cy="22" r="1.5" fill="var(--black)"/><circle cx="32" cy="22" r="1.5" fill="var(--black)"/>
+          <path d="M24 27 Q28 24, 32 27" stroke="var(--black)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M22 38 Q28 34, 34 38" stroke="var(--black)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="pc-text">"I keep rephrasing the same question hoping for better output"</div>
+        <div class="pc-subtext">The prompt isn't the problem. The setup is.</div>
+      </div>
+
+      <div class="problem-card">
+        <svg class="pc-icon" viewBox="0 0 56 56" fill="none">
+          <rect x="8" y="12" width="40" height="32" rx="4" fill="var(--orange)" stroke="var(--black)" stroke-width="2.5"/>
+          <rect x="12" y="8" width="32" height="6" rx="3" fill="var(--yellow)" stroke="var(--black)" stroke-width="2"/>
+          <rect x="14" y="22" width="16" height="3" rx="1.5" fill="var(--white)"/>
+          <rect x="14" y="28" width="24" height="3" rx="1.5" fill="var(--white)"/>
+          <rect x="14" y="34" width="10" height="3" rx="1.5" fill="var(--white)"/>
+        </svg>
+        <div class="pc-text">"I spend more time formatting the output than it saved me"</div>
+        <div class="pc-subtext">It doesn't know your brand voice or tools. Yet.</div>
+      </div>
+
+      <div class="problem-card">
+        <svg class="pc-icon" viewBox="0 0 56 56" fill="none">
+          <path d="M28 6 L32 20 L46 14 L36 26 L50 28 L36 32 L46 44 L32 38 L28 52 L24 38 L10 44 L20 32 L6 28 L20 26 L10 14 L24 20 Z" fill="var(--purple)" stroke="var(--black)" stroke-width="2.5"/>
+          <circle cx="28" cy="28" r="5" fill="var(--white)" stroke="var(--black)" stroke-width="2"/>
+          <text x="28" y="32" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="10" fill="var(--black)">?</text>
+        </svg>
+        <div class="pc-text">"I know it can do more but I don't know what to ask for"</div>
+        <div class="pc-subtext">You don't know what you don't know.</div>
+      </div>
+
+      <div class="problem-card">
+        <svg class="pc-icon" viewBox="0 0 56 56" fill="none">
+          <rect x="6" y="14" width="44" height="30" rx="6" fill="var(--pink)" stroke="var(--black)" stroke-width="2.5"/>
+          <rect x="6" y="14" width="44" height="10" rx="6" fill="var(--yellow)" stroke="var(--black)" stroke-width="2"/>
+          <rect x="14" y="30" width="20" height="3" rx="1.5" fill="var(--white)"/>
+          <rect x="14" y="36" width="12" height="3" rx="1.5" fill="var(--white)"/>
+          <circle cx="40" cy="18" r="3" fill="var(--green)" stroke="var(--black)" stroke-width="1.5"/>
+        </svg>
+        <div class="pc-text">"My team thinks AI is ChatGPT. They paste text and pray."</div>
+        <div class="pc-subtext">They've never seen a connected AI setup.</div>
+      </div>
+
+      <div class="problem-card">
+        <svg class="pc-icon" viewBox="0 0 56 56" fill="none">
+          <circle cx="28" cy="28" r="20" fill="var(--green)" fill-opacity="0.2" stroke="var(--black)" stroke-width="2.5"/>
+          <path d="M28 14 V28 L36 36" stroke="var(--black)" stroke-width="2.5" stroke-linecap="round"/>
+          <text x="28" y="48" text-anchor="middle" font-family="Space Mono" font-weight="700" font-size="8" fill="var(--black)">$25/mo</text>
+        </svg>
+        <div class="pc-text">"I'm paying $25/month and not sure it's worth it"</div>
+        <div class="pc-subtext">It's worth $2,300/month when you set it up right.</div>
+      </div>
+
+      <div class="problem-card">
+        <svg class="pc-icon" viewBox="0 0 56 56" fill="none">
+          <rect x="8" y="8" width="40" height="40" rx="8" fill="var(--blue)" fill-opacity="0.2" stroke="var(--black)" stroke-width="2.5"/>
+          <path d="M16 38 V28 M24 38 V20 M32 38 V24 M40 38 V14" stroke="var(--black)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M12 42 H44" stroke="var(--black)" stroke-width="2"/>
+        </svg>
+        <div class="pc-text">"Everyone talks about AI agents. Nobody explains it without jargon."</div>
+        <div class="pc-subtext">We skip the theory. You'll build one in 30 minutes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHAT YOU'LL LEARN ═══════ -->
+<section class="learn-section" id="learn">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-box" style="background:var(--blue);">02</span>
+      The Curriculum
+    </div>
+    <h2 class="section-title">4 hours. 5 modules.<br>Zero fluff.</h2>
+    <p class="section-subtitle">Every module ends with you building something real that you'll use Monday morning. This isn't a lecture. It's a build session.</p>
+
+    <div class="modules-grid">
+      <div class="module-item m-yellow" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">01</div>
+          <div class="module-info">
+            <div class="module-name">The Architecture: How Claude Actually Works</div>
+            <div class="module-time">30 min · Foundation</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body"><div class="module-body-inner">
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg> What You'll Learn</h4>
+            <ul>
+              <li>Claude vs ChatGPT vs Copilot: when to use which</li>
+              <li>The MCP architecture that makes Claude different</li>
+              <li>Connectors: how Claude talks to your actual tools</li>
+              <li>Plugins: pre-built role kits that make you faster instantly</li>
+              <li>Why "prompt engineering" is the wrong framing</li>
+            </ul>
+          </div>
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> You'll Walk Away With</h4>
+            <ul>
+              <li>A mental model that replaces confusion with clarity</li>
+              <li>Your first 3 connectors set up live</li>
+              <li>A cheat sheet for which plugin fits your role</li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="module-item m-pink" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">02</div>
+          <div class="module-info">
+            <div class="module-name">Your First 10 Workflows: From Copy-Paste to Autopilot</div>
+            <div class="module-time">60 min · Hands-On Build</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body"><div class="module-body-inner">
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg> What You'll Build</h4>
+            <ul>
+              <li>Morning briefing that pulls calendar + pipeline + news</li>
+              <li>Meeting prep that researches attendees in seconds</li>
+              <li>Slack digests that surface what matters</li>
+              <li>Email drafts that actually sound like you</li>
+              <li>Document creation: proposals, decks, reports</li>
+            </ul>
+          </div>
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> The Aha Moments</h4>
+            <ul>
+              <li>Watching Claude pull live CRM data into a proposal</li>
+              <li>Seeing a 20-page deck generated in 90 seconds</li>
+              <li>Realizing you never need to write a status update again</li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="module-item m-blue" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">03</div>
+          <div class="module-info">
+            <div class="module-name">Connectors Deep-Dive: Wire Up Your Entire Stack</div>
+            <div class="module-time">45 min · Integration Lab</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body"><div class="module-body-inner">
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Connectors We'll Set Up</h4>
+            <ul>
+              <li>CRM: queries, deal updates, contact enrichment</li>
+              <li>Lead tools: prospecting, sequence enrollment</li>
+              <li>Docs, Sheets, Drive, Calendar</li>
+              <li>Chat: search, post, digest, channel summaries</li>
+              <li>Email: draft, search threads, label management</li>
+              <li>Meeting tools: transcripts and action items</li>
+            </ul>
+          </div>
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg> What Changes</h4>
+            <ul>
+              <li>Claude stops being a chatbot, becomes a command center</li>
+              <li>One prompt touches 5 tools simultaneously</li>
+              <li>Your data flows. No more tab-switching marathons.</li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="module-item m-green" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">04</div>
+          <div class="module-info">
+            <div class="module-name">Scheduled Tasks & Automations: Set It and Forget It</div>
+            <div class="module-time">45 min · Automation Workshop</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body"><div class="module-body-inner">
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> What You'll Automate</h4>
+            <ul>
+              <li>Daily morning briefings on autopilot</li>
+              <li>Weekly pipeline reports generated and sent</li>
+              <li>Recurring meeting prep before every external call</li>
+              <li>Team digests that summarize overnight activity</li>
+              <li>Data pulls that run while you sleep</li>
+            </ul>
+          </div>
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> The Mindset Shift</h4>
+            <ul>
+              <li>From "ask Claude" to "Claude already did it"</li>
+              <li>Your trainer runs scheduled tasks daily. You'll build yours.</li>
+              <li>The difference between using AI and deploying AI</li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="module-item m-purple" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">05</div>
+          <div class="module-info">
+            <div class="module-name">Role-Specific Power Moves: Sales, Ops, Marketing & Beyond</div>
+            <div class="module-time">60 min · Role Breakouts</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body"><div class="module-body-inner">
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Sales & BD</h4>
+            <ul>
+              <li>Account research in 30 seconds flat</li>
+              <li>Outbound sequences powered by enrichment + AI</li>
+              <li>Deal forecasting with real pipeline data</li>
+              <li>Competitive battlecards auto-generated</li>
+            </ul>
+          </div>
+          <div class="mb-col">
+            <h4><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg> Ops, Marketing, Finance & More</h4>
+            <ul>
+              <li>Campaign planning with channel strategies</li>
+              <li>Financial variance analysis from spreadsheets</li>
+              <li>Process documentation that writes itself</li>
+              <li>Contract review and compliance checks</li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT THE TRAINER - Phone App Style ═══════ -->
+<section class="trainer-section" id="trainer">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-box" style="background:var(--green);">03</span>
+      Meet Your Trainer
+    </div>
+
+    <div class="trainer-layout">
+      <!-- Left: Phone app mockup -->
+      <div class="trainer-phone">
+        <div class="trainer-phone-notch"></div>
+        <div class="trainer-phone-screen">
+          <div class="tp-header">
+            <div class="tp-avatar">
+              <svg width="32" height="32" viewBox="0 0 44 44" fill="none" stroke="#000" stroke-width="2.5"><circle cx="22" cy="16" r="9"/><path d="M6 40 C6 30, 13 24, 22 24 S38 30, 38 40"/></svg>
+            </div>
+            <div class="tp-name">Your Trainer</div>
+            <div class="tp-role">CS Engineer Turned Operator | MD, MEA | Founder x2</div>
+          </div>
+
+          <div class="tp-bio-card">
+            Computer Science engineer. Years of experience building products with Fortune 50 companies across hardware and software. Now runs an entire region (sales, ops, P&L) and two startups on the side.
+          </div>
+
+          <div class="tp-badges">
+            <span class="tp-badge" style="background:var(--yellow);">CS Engineer</span>
+            <span class="tp-badge" style="background:var(--orange);">Fortune 50</span>
+            <span class="tp-badge" style="background:var(--pink);">HW + SW</span>
+            <span class="tp-badge" style="background:var(--green);">Founder x2</span>
+            <span class="tp-badge" style="background:var(--blue);">Zero Code</span>
+          </div>
+
+          <div class="tp-bottom-card" style="background:var(--yellow);border-color:var(--black);">
+            Can code. Chose to stop. Gets more done than ever. That's the whole point.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Text -->
+      <div class="trainer-text-side">
+        <h2>An engineer who stopped coding. And got more done than ever.</h2>
+        <p>
+          The best person to teach you Claude isn't an AI researcher.
+          It's someone who runs a P&L, manages a team, and uses it to
+          get actual work done every single day.
+        </p>
+        <p>
+          Every connector wired up. Every plugin active. Scheduled tasks running
+          on autopilot. Two startups getting built on the side. All from Cowork -
+          zero terminal, zero code.
+        </p>
+        <div class="highlight-box">
+          If an engineer doesn't need code to use Claude, neither do you. That's what you'll learn in 4 hours.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ QUOTE ═══════ -->
+<div class="quote-section">
+  <div class="container">
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">
+        I'm probably using about 30% of what Claude can do. And I'm
+        already getting results that blow people away. Imagine what
+        happens when you actually learn the full system.
+      </div>
+      <div class="quote-author">After a friend offered to pay $500 on the spot for a walkthrough</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ ROI - Colorful ═══════ -->
+<section class="roi-section" id="roi">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-box" style="background:var(--yellow);color:var(--black);">04</span>
+      The Math
+    </div>
+    <h2 class="section-title">This pays for itself before lunch on Day 2.</h2>
+    <p class="section-subtitle">Conservative math. Real tasks. Not hypothetical "productivity gains." Actual hours you get back every week.</p>
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-num">5-10h</div>
+        <div class="roi-label">Saved Per Week</div>
+        <div class="roi-example">Meeting prep, reports, email drafting, research, data pulls</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-num">$2,300+</div>
+        <div class="roi-label">Monthly Value</div>
+        <div class="roi-example">Based on avg. professional rate</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-num">4.6x</div>
+        <div class="roi-label">ROI in Month 1</div>
+        <div class="roi-example">$500 investment returns $2,300+ in recovered hours</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHO IT'S FOR ═══════ -->
+<section class="audience-section" id="audience">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-box" style="background:var(--lime);">05</span>
+      Who This Is For
+    </div>
+    <h2 class="section-title">If you work with a laptop,<br>this is for you.</h2>
+    <p class="section-subtitle">No technical background needed. If you can use Google Docs, you can do everything in this workshop.</p>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="ac-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="ac-title">Sales Leaders</div>
+        <div class="ac-desc">Pipeline reviews, call prep, competitive intel, and outreach. All automated.</div>
+      </div>
+      <div class="audience-card">
+        <div class="ac-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg></div>
+        <div class="ac-title">Operations Managers</div>
+        <div class="ac-desc">Process docs, vendor reviews, compliance tracking, and status reports on autopilot</div>
+      </div>
+      <div class="audience-card">
+        <div class="ac-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <div class="ac-title">Marketing Teams</div>
+        <div class="ac-desc">Campaign plans, content creation, SEO audits, and brand reviews in minutes</div>
+      </div>
+      <div class="audience-card">
+        <div class="ac-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="ac-title">Finance & Accounting</div>
+        <div class="ac-desc">Variance analysis, reconciliation, journal entries, and close management</div>
+      </div>
+      <div class="audience-card">
+        <div class="ac-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="ac-title">Founders & MDs</div>
+        <div class="ac-desc">Run your business like you have 3 extra people. Strategy, ops, and communication. Handled.</div>
+      </div>
+      <div class="audience-card">
+        <div class="ac-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+        <div class="ac-title">Anyone Curious</div>
+        <div class="ac-desc">If you've been hearing about AI and want to actually do something with it, this is your on-ramp.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PREREQUISITES ═══════ -->
+<section class="prereq-section">
+  <div class="container">
+    <div class="section-label" style="text-align:center;justify-content:center;">
+      <span class="label-box" style="background:var(--orange);">!</span>
+      Before You Show Up
+    </div>
+    <h2 class="section-title" style="text-align:center;">The entry requirements.<br>Yes, we're picky.</h2>
+    <p class="section-subtitle" style="text-align:center;margin:0 auto 32px;">Only 5 people per session. We keep it small so everyone builds, nobody watches.</p>
+
+    <div class="prereq-grid">
+      <div class="prereq-card">
+        <div class="prereq-tag">1</div>
+        <div class="prereq-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10"/><path d="M9 16v4M15 16v4"/></svg>
+        </div>
+        <div class="prereq-title">A laptop</div>
+        <div class="prereq-desc">Not a phone. Not a tablet. A real keyboard. You'll be building things.</div>
+      </div>
+
+      <div class="prereq-card">
+        <div class="prereq-tag">2</div>
+        <div class="prereq-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="prereq-title">Claude Pro at $20/mo</div>
+        <div class="prereq-desc">Active subscription required. Use the referral link below to get a discount on signup.</div>
+      </div>
+
+      <div class="prereq-card">
+        <div class="prereq-tag">3</div>
+        <div class="prereq-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <div class="prereq-title">Claude Desktop app</div>
+        <div class="prereq-desc">Downloaded and logged in. We're not spending workshop time on installation.</div>
+      </div>
+
+      <div class="prereq-card">
+        <div class="prereq-tag">4</div>
+        <div class="prereq-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+        </div>
+        <div class="prereq-title">A registered seat</div>
+        <div class="prereq-desc">This isn't a drop-in. Register, confirm, show up ready.</div>
+      </div>
+
+      <div class="prereq-card">
+        <div class="prereq-tag">5</div>
+        <div class="prereq-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="prereq-title">Pre-session questionnaire</div>
+        <div class="prereq-desc">So we can tailor the session to your actual tools and workflows. No generic nonsense.</div>
+      </div>
+
+      <div class="prereq-card">
+        <div class="prereq-tag">6</div>
+        <div class="prereq-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="prereq-title">Max 5 per session</div>
+        <div class="prereq-desc">Small group. Everyone gets hands-on feedback. No hiding in the back row.</div>
+      </div>
+
+      <div class="prereq-card">
+        <div class="prereq-tag">7</div>
+        <div class="prereq-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+        <div class="prereq-title">Curiosity</div>
+        <div class="prereq-desc">If you're here to check a box, save your money. If you're here to reinvent how you work, let's go.</div>
+      </div>
+
+      <div class="prereq-card">
+        <div class="prereq-tag">8</div>
+        <div class="prereq-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="prereq-title">Imagination</div>
+        <div class="prereq-desc">The willingness to look at your entire workday and ask "what if none of this had to be manual?"</div>
+      </div>
+    </div>
+
+    <!-- Claude referral discount banner -->
+    <div class="referral-banner">
+      <div class="referral-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg>
+      </div>
+      <div class="referral-text">
+        <strong>Need a Claude Pro subscription? Use my referral.</strong>
+        <span>Save on your Claude Pro signup through this referral link. A $20/mo subscription is required for the workshop.</span>
+      </div>
+      <a href="https://claude.ai/referral/lvpWdyoG1w?s=cowork&v=apps" target="_blank" class="referral-btn">
+        Get Claude Pro
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ PRICING - 2 tiers ═══════ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-label" style="text-align:center;justify-content:center;">
+      <span class="label-box" style="background:var(--yellow);">06</span>
+      Investment
+    </div>
+    <h2 class="section-title" style="text-align:center;">Pick your level.</h2>
+    <p class="section-subtitle" style="text-align:center;margin:0 auto 40px;">Both tiers include the full 4-hour live session. The difference is how deep you go after.</p>
+    <div class="pricing-grid">
+      <div class="price-card featured">
+        <div class="pc-badge" style="background:var(--yellow);color:var(--black);">Most Popular</div>
+        <div class="pc-name">Mastery</div>
+        <div class="pc-price">$500<small>/seat</small></div>
+        <div class="pc-per">The full experience</div>
+        <ul class="pc-features">
+          <li>Full 4-hour live workshop</li>
+          <li>Interactive training guide (HTML)</li>
+          <li>10+ ready-to-use workflow templates</li>
+          <li>Skill building: prompts, memory, artifacts</li>
+          <li>Connector setup for your tools</li>
+          <li>Scheduled agents and automation</li>
+          <li>Live artifact creation walkthroughs</li>
+          <li>Project organization playbooks</li>
+        </ul>
+        <a href="#register" class="nb-btn nb-btn-primary" style="width:100%;justify-content:center;" onclick="setTimeout(()=>{document.getElementById('regFormWrapper').classList.add('open');document.getElementById('regToggleBtn').innerHTML='<svg width=20 height=20 viewBox=&quot;0 0 24 24&quot; fill=none stroke=currentColor stroke-width=2.5><path d=&quot;M18 6L6 18M6 6l12 12&quot;/></svg> Close'},400)">Grab Your Seat</a>
+      </div>
+      <div class="price-card">
+        <div class="pc-name">Transformation</div>
+        <div class="pc-price">$1,500<small>/seat</small></div>
+        <div class="pc-per">For teams that want it all</div>
+        <ul class="pc-features">
+          <li>Everything in Mastery</li>
+          <li>1-on-1 setup session (60 min)</li>
+          <li>Custom workflows for your business</li>
+          <li>Full connector & plugin setup done for you</li>
+          <li>Monthly check-in call for 3 months</li>
+          <li>Dedicated Slack/WhatsApp support channel</li>
+          <li>Custom scheduled tasks built for your role</li>
+        </ul>
+        <a href="#register" class="nb-btn nb-btn-white" style="width:100%;justify-content:center;">Let's Talk</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-box" style="background:var(--purple);">07</span>
+      FAQ
+    </div>
+    <h2 class="section-title">Questions you're probably asking.</h2>
+    <p class="section-subtitle" style="margin-bottom:32px;">Click to expand.</p>
+    <div class="faq-grid">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Do I need to know how to code? <div class="faq-toggle">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. The entire workshop runs on Cowork mode, a visual interface. Your trainer is a Computer Science engineer who used to code professionally, then chose to stop because Cowork handles everything. If an engineer doesn't need code, neither do you.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What tools do I need beforehand? <div class="faq-toggle">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">A Claude Pro subscription ($25/month) and a laptop. <a href="https://claude.ai/referral/lvpWdyoG1w?s=cowork&v=apps" target="_blank" style="color:var(--blue);font-weight:600;text-decoration:underline;">Grab a discount on Claude Pro here.</a> We'll set up everything else together during the workshop. Bonus if you already use a CRM, Slack, or Google Workspace. We'll connect those live.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is this just about Claude or AI in general? <div class="faq-toggle">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">It's Claude-focused because that's where the deepest workflows are. But Module 1 covers Claude vs ChatGPT vs Copilot so you understand the full landscape and can make informed choices.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Will this work for my specific role? <div class="faq-toggle">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">If you work in sales, marketing, ops, finance, HR, legal, product, or support: yes, there's a dedicated plugin and role-specific playbook for you. Module 5 breaks out by function.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How is this different from YouTube tutorials? <div class="faq-toggle">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">YouTube shows you what's possible. This workshop has you build it live, with your actual tools connected, and you walk out with working workflows. It's the difference between watching someone cook and eating the meal.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I bring my team? <div class="faq-toggle">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. It's better that way. Teams that learn together implement faster. Group pricing available for 5+ seats.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What if I'm already using Claude? <div class="faq-toggle">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Even better. Most "advanced" users are at maybe 10-15% of what's possible. Connectors, scheduled tasks, plugins, Cowork mode. There's a whole layer most people haven't touched.</div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is this in-person or online? <div class="faq-toggle">+</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Online and fully interactive. You'll be building alongside the trainer in real-time, sharing your screen, and getting live feedback. No passive webinar energy. This is a working session.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ DISPATCH - Neo-brutalism phone ═══════ -->
+<section class="dispatch-section" id="dispatch">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-box" style="background:var(--blue);color:var(--black);">Bonus</span>
+      Dispatch
+    </div>
+    <h2 class="section-title">Run your AI from your phone.</h2>
+    <p class="section-subtitle">
+      Claude Dispatch lets you fire off tasks from your phone and
+      have them run on your desktop. Commuting? In a meeting? At coffee?
+      Your AI is still working.
+    </p>
+
+    <div class="dispatch-grid">
+      <!-- Phone mockup - neo-brutalism style -->
+      <div>
+        <div class="dispatch-phone">
+          <div class="dispatch-notch"></div>
+          <div class="dispatch-screen">
+            <div class="dispatch-msg user">Pull last week's pipeline numbers and email me a summary</div>
+            <div class="dispatch-msg claude">On it. Running pipeline analysis on your desktop now...</div>
+            <div class="dispatch-msg claude">Done. Summary emailed. 3 deals need attention. Flagged in the report.</div>
+            <div class="dispatch-msg user">Prep me for the 2pm call with the enterprise team</div>
+            <div class="dispatch-msg claude">Researching attendees, pulling CRM history, building talk track. Ready in your Cowork session.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature cards -->
+      <div class="dispatch-features">
+        <div class="df-card">
+          <div class="df-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div>
+            <div class="df-title">Task from anywhere</div>
+            <div class="df-desc">Open Claude on your phone, type a task, and it runs on your desktop. You don't even need to be at your computer.</div>
+          </div>
+        </div>
+
+        <div class="df-card">
+          <div class="df-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div>
+            <div class="df-title">Schedule recurring work</div>
+            <div class="df-desc">"Every Monday morning, pull analytics and email me a summary." Set it once, it runs forever.</div>
+          </div>
+        </div>
+
+        <div class="df-card">
+          <div class="df-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <div>
+            <div class="df-title">Persistent context</div>
+            <div class="df-desc">One continuous thread. Claude remembers what you asked last week. Pick up where you left off, phone or laptop.</div>
+          </div>
+        </div>
+
+        <div class="df-card">
+          <div class="df-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="df-title">Your tools, your phone</div>
+            <div class="df-desc">Dispatch connects to the same connectors you set up in Cowork. CRM queries, email drafts, Slack summaries. All from your pocket.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FINAL CTA ═══════ -->
+<section class="cta-section" id="register">
+  <div class="container">
+    <h2>Stop reading about AI.<br>Start running it.</h2>
+    <p>
+      4 hours from now, you'll have real workflows, real automations,
+      and a real understanding of what this tool can actually do for you.
+    </p>
+    <div class="cta-buttons">
+      <button onclick="toggleRegForm()" class="nb-btn nb-btn-primary" style="font-size:18px;padding:18px 36px;box-shadow:var(--shadow-lg);" id="regToggleBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Register for the Next Cohort
+      </button>
+      <a href="#pricing" class="nb-btn nb-btn-white" style="font-size:18px;padding:18px 36px;">
+        Team Pricing Inquiry
+      </a>
+    </div>
+
+    <!-- Registration Form (hidden by default) -->
+    <div class="reg-form-wrapper" id="regFormWrapper">
+      <div class="reg-form" id="regFormContent">
+        <h3>Grab your seat.</h3>
+        <div class="reg-sub">5 spots per cohort. Fill this out, we'll confirm your slot.</div>
+
+        <form id="regForm" onsubmit="submitRegForm(event)">
+          <div class="reg-row">
+            <div class="reg-field">
+              <label class="reg-label">First Name *</label>
+              <input type="text" class="reg-input" placeholder="Sindhu" required>
+            </div>
+            <div class="reg-field">
+              <label class="reg-label">Last Name *</label>
+              <input type="text" class="reg-input" placeholder="Kareem" required>
+            </div>
+          </div>
+
+          <div class="reg-field">
+            <label class="reg-label">Work Email *</label>
+            <input type="email" class="reg-input" placeholder="you@company.com" required>
+          </div>
+
+          <div class="reg-row">
+            <div class="reg-field">
+              <label class="reg-label">Company</label>
+              <input type="text" class="reg-input" placeholder="Acme Inc.">
+            </div>
+            <div class="reg-field">
+              <label class="reg-label">Role / Title</label>
+              <input type="text" class="reg-input" placeholder="Head of Sales">
+            </div>
+          </div>
+
+          <div class="reg-field">
+            <label class="reg-label">Which tier? *</label>
+            <select class="reg-select" required>
+              <option value="" disabled selected>Pick one</option>
+              <option value="mastery">Mastery ($500)</option>
+              <option value="transformation">Transformation ($1,500)</option>
+              <option value="team">Team inquiry (5+ seats)</option>
+            </select>
+          </div>
+
+          <div class="reg-field">
+            <label class="reg-label">What tools do you use daily?</label>
+            <input type="text" class="reg-input" placeholder="HubSpot, Slack, Google Workspace, etc.">
+          </div>
+
+          <div class="reg-field">
+            <label class="reg-label">What's the one thing you'd love AI to handle for you?</label>
+            <input type="text" class="reg-input" placeholder="Morning briefings, meeting prep, pipeline reports...">
+          </div>
+
+          <button type="submit" class="reg-submit">
+            Confirm My Seat
+          </button>
+        </form>
+
+        <div class="reg-success" id="regSuccess">
+          <h3>You're in.</h3>
+          <p>We'll send a confirmation with next steps, the pre-session questionnaire, and setup instructions. See you soon.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-note">
+      <span><svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="var(--red)"/></svg> Limited seats per cohort</span>
+      <span><svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="var(--green)"/></svg> Fully live and online</span>
+      <span><svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="var(--blue)"/></svg> Next dates coming soon</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>Claude Mastery</p>
+    <p style="margin-top:8px;color:#888;font-size:11px;">Built with Claude, obviously.</p>
+  </div>
+</footer>
+
+<script>
+function toggleModule(el) {
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.module-item').forEach(m => m.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+
+function toggleFaq(el) {
+  el.classList.toggle('open');
+}
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Registration form toggle
+function toggleRegForm() {
+  const wrapper = document.getElementById('regFormWrapper');
+  const btn = document.getElementById('regToggleBtn');
+  wrapper.classList.toggle('open');
+  if (wrapper.classList.contains('open')) {
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg> Close';
+    setTimeout(() => wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+  } else {
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Register for the Next Cohort';
+  }
+}
+
+function submitRegForm(e) {
+  e.preventDefault();
+  document.getElementById('regForm').style.display = 'none';
+  const success = document.getElementById('regSuccess');
+  success.classList.add('show');
+}
+
+// Hero card parallax
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const cards = document.querySelectorAll('.hero-card-stack .hc');
+  cards.forEach((card, i) => {
+    card.style.transform = `rotate(${[2, -3, 1][i]}deg) translateY(${scrollY * (0.05 + i * 0.02)}px)`;
+  });
+});
+</script>
+</body>
+</html>
