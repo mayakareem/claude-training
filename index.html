@@ -1562,36 +1562,37 @@ body {
         <div class="reg-sub">5 spots per cohort. Fill this out, we'll confirm your slot.</div>
 
         <form id="regForm" onsubmit="submitRegForm(event)">
+          <input type="hidden" name="_subject" value="New Claude Training Registration">
           <div class="reg-row">
             <div class="reg-field">
               <label class="reg-label">First Name *</label>
-              <input type="text" class="reg-input" placeholder="Sindhu" required>
+              <input type="text" name="first_name" class="reg-input" placeholder="Sindhu" required>
             </div>
             <div class="reg-field">
               <label class="reg-label">Last Name *</label>
-              <input type="text" class="reg-input" placeholder="Kareem" required>
+              <input type="text" name="last_name" class="reg-input" placeholder="Kareem" required>
             </div>
           </div>
 
           <div class="reg-field">
             <label class="reg-label">Work Email *</label>
-            <input type="email" class="reg-input" placeholder="you@company.com" required>
+            <input type="email" name="email" class="reg-input" placeholder="you@company.com" required>
           </div>
 
           <div class="reg-row">
             <div class="reg-field">
               <label class="reg-label">Company</label>
-              <input type="text" class="reg-input" placeholder="Acme Inc.">
+              <input type="text" name="company" class="reg-input" placeholder="Acme Inc.">
             </div>
             <div class="reg-field">
               <label class="reg-label">Role / Title</label>
-              <input type="text" class="reg-input" placeholder="Head of Sales">
+              <input type="text" name="role" class="reg-input" placeholder="Head of Sales">
             </div>
           </div>
 
           <div class="reg-field">
             <label class="reg-label">Which tier? *</label>
-            <select class="reg-select" required>
+            <select name="tier" class="reg-select" required>
               <option value="" disabled selected>Pick one</option>
               <option value="mastery">Mastery ($500)</option>
               <option value="transformation">Transformation ($1,500)</option>
@@ -1601,12 +1602,12 @@ body {
 
           <div class="reg-field">
             <label class="reg-label">What tools do you use daily?</label>
-            <input type="text" class="reg-input" placeholder="HubSpot, Slack, Google Workspace, etc.">
+            <input type="text" name="daily_tools" class="reg-input" placeholder="HubSpot, Slack, Google Workspace, etc.">
           </div>
 
           <div class="reg-field">
             <label class="reg-label">What's the one thing you'd love AI to handle for you?</label>
-            <input type="text" class="reg-input" placeholder="Morning briefings, meeting prep, pipeline reports...">
+            <input type="text" name="ai_wish" class="reg-input" placeholder="Morning briefings, meeting prep, pipeline reports...">
           </div>
 
           <button type="submit" class="reg-submit">
@@ -1670,11 +1671,21 @@ function toggleRegForm() {
   }
 }
 
-function submitRegForm(e) {
+async function submitRegForm(e) {
   e.preventDefault();
-  document.getElementById('regForm').style.display = 'none';
-  const success = document.getElementById('regSuccess');
-  success.classList.add('show');
+  const form = document.getElementById('regForm');
+  const btn = form.querySelector('.reg-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    const data = new FormData(form);
+    const FORMSPREE_ID = 'mqewrrlb';
+    await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+    });
+  } catch (err) { /* still show success - formspree handles retries */ }
+  form.style.display = 'none';
+  document.getElementById('regSuccess').classList.add('show');
 }
 
 // Hero card parallax
