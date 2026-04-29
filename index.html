@@ -1679,11 +1679,24 @@ async function submitRegForm(e) {
   btn.disabled = true;
   try {
     const data = new FormData(form);
-    const FORMSPREE_ID = 'mqewrrlb';
-    await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+    const res = await fetch('https://formspree.io/f/mqewrrlb', {
       method: 'POST', body: data, headers: { 'Accept': 'application/json' }
     });
-  } catch (err) { /* still show success - formspree handles retries */ }
+    if (!res.ok) {
+      const err = await res.json();
+      console.error('Formspree error:', err);
+      alert('Something went wrong. Please try again or email sindhu directly.');
+      btn.textContent = 'Confirm My Seat';
+      btn.disabled = false;
+      return;
+    }
+  } catch (err) {
+    console.error('Network error:', err);
+    alert('Connection issue. Please try again.');
+    btn.textContent = 'Confirm My Seat';
+    btn.disabled = false;
+    return;
+  }
   form.style.display = 'none';
   document.getElementById('regSuccess').classList.add('show');
 }
